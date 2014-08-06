@@ -3,7 +3,7 @@ Priority-Hub
 
 Sort lockscreen notifications on your iPhone by app!
 
-![screen1](https://raw.githubusercontent.com/ryn-inaba/priorityhub2/master/images/screenshot%201.png)
+![screen1](https://raw.githubusercontent.com/ryn-inaba/priorityhub2/master/images/screenshot%201.PNG)
 
 
 License
