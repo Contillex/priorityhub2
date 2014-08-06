@@ -1,0 +1,40 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x18\x00p\x00r\x00i\x00o\x00r\x00i\x00t\x00y\x00h\x00u\x00b\x002)
+
+[Launch]
+Launch Configurations=Launch Configuration 0,Launch Configuration 1
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=scriptAppLauncher
+Name=Build package
+Type=Script Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=
+EnvironmentGroup=default
+Executable=file:///home/jennifer/iosdev/priorityhub2/kdevelop/makepkg.sh
+Execute on Remote Host=false
+Interpreter=bash
+Output Filtering Mode=0
+Remote Host=
+Working Directory=file:///home/jennifer/iosdev/priorityhub2
+
+[Launch][Launch Configuration 1]
+Configured Launch Modes=execute
+Configured Launchers=scriptAppLauncher
+Name=Install on device
+Type=Script Application
+
+[Launch][Launch Configuration 1][Data]
+Arguments=
+EnvironmentGroup=default
+Executable=file:///home/jennifer/iosdev/priorityhub2/kdevelop/installondevice.sh
+Execute on Remote Host=false
+Interpreter=bash
+Output Filtering Mode=0
+Remote Host=
+Working Directory=file:///home/jennifer/iosdev/priorityhub2
+
+[Project]
+VersionControlSupport=kdevgit
