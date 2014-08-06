@@ -1,0 +1,10 @@
+Package: com.thomasfinch.priorityhub
+Name: Priority Hub
+Depends: mobilesubstrate, preferenceloader
+Conflicts: gsc.ipad
+Version: 1.1.5beta
+Architecture: iphoneos-arm
+Description: Organize lockscreen notifications
+Maintainer: Thomas Finch
+Author: Thomas Finch
+Section: Tweaks
