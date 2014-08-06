@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.thomasfinch.priorityhub.icons</string>
+	<string>com.lqr.priorityhub2.icons</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -19,7 +19,7 @@
 	<key>DTPlatformName</key>
 	<string>iphoneos</string>
 	<key>MinimumOSVersion</key>
-	<string>2.0</string>
+	<string>7.0</string>
 	<key>compositingFilter-on</key>
 	<string></string>
 </dict>

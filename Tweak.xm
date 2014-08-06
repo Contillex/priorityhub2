@@ -94,7 +94,7 @@ static void lockStateChanged(CFNotificationCenterRef center, void *observer, CFS
 {
     //Initialize controller and set up Darwin notifications for preference changes and lock state changes
     controller = [[PHController alloc] init];
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, prefsChanged, CFSTR("com.thomasfinch.priorityhub-prefschanged"), NULL,CFNotificationSuspensionBehaviorDeliverImmediately);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, prefsChanged, CFSTR("com.lqr.priorityhub2-prefschanged"), NULL,CFNotificationSuspensionBehaviorDeliverImmediately);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, lockStateChanged, CFSTR("com.apple.springboard.lockstate"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
     [controller updatePrefsDict];
 

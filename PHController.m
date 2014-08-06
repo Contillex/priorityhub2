@@ -4,7 +4,7 @@
 #import <objc/runtime.h>
 #import <UIKit/UIImage+Private.h>
 
-#define kPrefsPath @"/var/mobile/Library/Preferences/com.thomasfinch.priorityhub.plist"
+#define kPrefsPath @"/var/mobile/Library/Preferences/com.lqr.priorityhub2.plist"
 
 //#define DEBUG
 

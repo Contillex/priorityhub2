@@ -1,9 +1,10 @@
-Package: com.lqr.priority-hub2
-Name: Priority-Hub2
-Depends: mobilesubstrate
-Version: 0.0.1
+Package: com.lqr.priorityhub2
+Name: Priority Hub 2
+Depends: mobilesubstrate, preferenceloader
+Conflicts: gsc.ipad
+Version: 0.5-alpha
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Organize lockscreen notifications
 Maintainer: Jennifer Stears
-Author: Jennifer Stears
+Author: Thomas Finch
 Section: Tweaks
