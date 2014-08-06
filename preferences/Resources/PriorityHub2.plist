@@ -37,16 +37,16 @@ items = (
     default = 0;
     defaults = "com.lqr.priorityhub2";
     key = showSeparators;
-    PostNotification = com.lqr2.priorityhub-prefschanged;
+    PostNotification = com.lqr.priorityhub2-prefschanged;
     label = "Show Notification Separators";
   },
   {
     cell = PSLinkListCell;
     detail = PSListItemsController;
     default = 0;
-    defaults = "com.lqr2.priorityhub";
+    defaults = "com.lqr.priorityhub2";
     key = iconLocation;
-    PostNotification = com.lqr2.priorityhub-prefschanged;
+    PostNotification = com.lqr.priorityhub2-prefschanged;
     label = "Icon Location";
     validValues = (
       0,

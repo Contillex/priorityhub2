@@ -4,7 +4,7 @@ GO_EASY_ON_ME = 1
 include theos/makefiles/common.mk
 
 BUNDLE_NAME = PriorityHub2
-PriorityHub2_FILES = PriorityHub.mm
+PriorityHub2_FILES = PriorityHub2.mm
 PriorityHub2_INSTALL_PATH = /Library/PreferenceBundles
 PriorityHub2_FRAMEWORKS = UIKit
 PriorityHub2_PRIVATE_FRAMEWORKS = Preferences

@@ -1,10 +1,10 @@
 {
     entry = {
-	bundle = PriorityHub;
+	bundle = PriorityHub2;
 	cell = PSLinkCell;
-	detail = PriorityHubListController;
+	detail = PriorityHub2ListController;
 	icon = PriorityHub.png;
 	isController = 1;
-	label = "Priority Hub";
+	label = "Priority Hub 2";
     };
 }
