@@ -36,7 +36,7 @@ int numNotificationsForAppID(NSString* appID);
 
 - (id)init
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M INIT");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M INIT");
     self = [super init];
     if (self)
     {
@@ -76,7 +76,7 @@ int numNotificationsForAppID(NSString* appID);
 
 - (void)updatePrefsDict
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M UPDATE PREFS DICT");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M UPDATE PREFS DICT");
     prefsDict = [[NSMutableDictionary alloc] init];
     if ([NSDictionary dictionaryWithContentsOfFile:kPrefsPath]) {
         [prefsDict addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:kPrefsPath]];
@@ -103,7 +103,7 @@ int numNotificationsForAppID(NSString* appID);
 
 - (UIImage *)iconForAppID:(NSString *)appID
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M ICON FOR APP ID");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M ICON FOR APP ID");
     NSBundle *iconsBundle = [NSBundle  bundleWithPath:@"/Library/Application Support/PriorityHub2/Icons.bundle"];
     UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",appID] inBundle:iconsBundle];
 
@@ -115,7 +115,7 @@ int numNotificationsForAppID(NSString* appID);
 
 - (void)layoutSubviews
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M LAYOUT SUBVIEWS");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M LAYOUT SUBVIEWS");
     //Remove all subviews and start fresh
     for (UIView *v in [appListView subviews])
         [v removeFromSuperview];
@@ -137,15 +137,15 @@ int numNotificationsForAppID(NSString* appID);
         [appListView addSubview:appView];
     }
 
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M LAYOUT SUBVIEWS DONE");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M LAYOUT SUBVIEWS DONE");
 }
 
 - (void)selectAppID:(NSString*)appID
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M SELECT APP ID: %@",appID);
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M SELECT APP ID: %@",appID);
     if (!appID)
     {
-        curAppID = nil;
+        curAppID = appID;
         [notificationsTableView reloadData];
         [UIView animateWithDuration:0.15 animations:^{
             selectedView.alpha = 0.0;
@@ -176,12 +176,12 @@ int numNotificationsForAppID(NSString* appID);
         } completion:nil];
     }
 
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M SELECT APP ID DONE");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M SELECT APP ID DONE");
 }
 
 - (void)addNotificationForAppID:(NSString *)appID
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M ADD NOTIFICATION FOR APP ID: %@",appID);
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M ADD NOTIFICATION FOR APP ID: %@",appID);
 
     //Needed for compatibility with GroupQuiet
     if (numNotificationsForAppID(appID) == 0)
@@ -189,7 +189,7 @@ int numNotificationsForAppID(NSString* appID);
 
     if (![appViewsDict objectForKey:appID])
     {
-        NSLog(@"PRIORITYHUB - PHCONTROLLER.M NO INFO FOR APP ID, CREATING VIEWS");
+        NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M NO INFO FOR APP ID, CREATING VIEWS");
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(appListView.contentSize.width, 0, [self viewWidth], [self viewHeight])];
         containerView.tag = 1;
 
@@ -211,26 +211,26 @@ int numNotificationsForAppID(NSString* appID);
         else
             iconImageView.frame = CGRectMake(([self viewHeight] - [self iconSize])/2, ([self viewWidth] - [self iconSize])/2, [self iconSize], [self iconSize]);
 
-        NSLog(@"PRIORITYHUB - PHCONTROLLER.M DONE CREATING VIEWS");
+        NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M DONE CREATING VIEWS");
         [appViewsDict setObject:containerView forKey:appID];
         [self layoutSubviews];
     }
     else
     {
-      NSLog(@"PRIORITYHUB - PHCONTROLLER.M NOTIFICATIONS VIEW FOR APP: %@ EXISTS",appID);
+      NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M NOTIFICATIONS VIEW FOR APP: %@ EXISTS",appID);
       int notificationCount = numNotificationsForAppID(appID);
       if ([[prefsDict objectForKey:@"showNumbers"] boolValue]) {
-        NSLog(@"PRIORITYHUB - PHCONTROLLER.M ADD NUMBER");
+        NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M ADD NUMBER");
         ((UILabel*)[[appViewsDict objectForKey:appID] subviews][1]).text = [NSString stringWithFormat:@"%i", notificationCount];
       }
     }
 
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M ADD NOTIFICATION DONE");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M ADD NOTIFICATION DONE");
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer*)recognizer
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M HANDLE SINGLE TAP");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M HANDLE SINGLE TAP");
     resetTableViewFadeTimers();
     resetIdleTimer();
     NSString *appID = [appViewsDict allKeysForObject:recognizer.view][0];
@@ -242,7 +242,7 @@ int numNotificationsForAppID(NSString* appID);
 
 - (void)removeNotificationForAppID:(NSString *)appID
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M REMOVE NOTIFICATION FOR APP ID: %@",appID);
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M REMOVE NOTIFICATION FOR APP ID: %@",appID);
     int notificationCount = numNotificationsForAppID(appID);
     if ([[prefsDict objectForKey:@"showNumbers"] boolValue])
         ((UILabel*)[[appViewsDict objectForKey:appID] subviews][1]).text = [NSString stringWithFormat:@"%i", notificationCount];
@@ -259,13 +259,13 @@ int numNotificationsForAppID(NSString* appID);
 
 - (void)removeAllNotificationsForAppID:(NSString *)appID
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M REMOVE NOTIFICATIONS FOR APP ID");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M REMOVE NOTIFICATIONS FOR APP ID");
     removeBulletinsForAppID(appID);
 }
 
 - (void)removeAllNotifications
 {
-    NSLog(@"PRIORITYHUB - PHCONTROLLER.M REMOVE ALL NOTIFICATIONS");
+    NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M REMOVE ALL NOTIFICATIONS");
     for (UIView *appView in [appViewsDict allValues])
         [appView removeFromSuperview];
 

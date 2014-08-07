@@ -5,7 +5,7 @@
 #import "Headers.h"
 
 #ifdef DEBUG
-    #define PRLog(fmt, ...) NSLog((@"[PRIORITYHUB] [Line %d] %s: "  fmt), __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__)
+    #define PRLog(fmt, ...) NSLog((@"[PRIORITYHUB2] [Line %d] %s: "  fmt), __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__)
 #else
     #define PRLog(fmt, ...)
 #endif
