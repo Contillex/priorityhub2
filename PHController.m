@@ -101,10 +101,11 @@ int numNotificationsForAppID(NSString* appID);
     return [[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"/Library/MobileSubstrate/DynamicLibraries/%@.dylib",name]];
 }
 
+// Need to change this to PriorityHub2 instead of PriorityHub since it causes a crash!
 - (UIImage *)iconForAppID:(NSString *)appID
 {
     NSLog(@"PRIORITYHUB2 - PHCONTROLLER.M ICON FOR APP ID");
-    NSBundle *iconsBundle = [NSBundle  bundleWithPath:@"/Library/Application Support/PriorityHub2/Icons.bundle"];
+    NSBundle *iconsBundle = [NSBundle  bundleWithPath:@"/Library/Application Support/PriorityHub/Icons.bundle"];
     UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",appID] inBundle:iconsBundle];
 
     if (img)
